@@ -121,6 +121,36 @@ class My_Float:
         """
         return self.__is_positive
 
+    def __repr__(self):
+        """you know what this does
+
+        Returns:
+            [str]: [a string containing a float for example: "123.0"]
+        """
+        return str(self.__value[0]) + self.__value[1] + str(self.__value[2]) # example output: "123.123"
+
+    def __str__(self):
+        """you know what this does
+
+        Returns:
+            [str]: [a string containing a float for example: "123.0"]
+        """
+        return str(self.__value[0]) + self.__value[1] + str(self.__value[2]) # example output: "123.123"
+
+    def __bytes__(self):
+        """compute a byte-string representation of an object
+
+        Returns:
+            [bytes]: [float as a string cast to bytes type]
+        """
+        float_as_str = str(self.__value[0]) + self.__value[1] + str(self.__value[2])
+        return bytes(float_as_str, 'utf-8')
+
+    # TODO make me later if needed
+    # def __format__(self, format_spec: str) -> str:
+    #     # acceptable format specs:
+    #     # "float" or "e" or "ratio" or "x.precision"
+    #     pass
 
 
         
@@ -129,7 +159,7 @@ class My_Float:
 if __name__ == "__main__":
     f = My_Float("432432.348952")
 
-    print(f.Value)
+    print(f)
     print(f.Is_positive)
 
     # f.Value = "ahdak" # <- throws error | thats a good thing
