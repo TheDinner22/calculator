@@ -42,7 +42,7 @@ unit_tests["My_float throws when not passed None, str, or int"] = test1
 def test2(done):
     # define input and expected output
     good_input = -2134
-    expected_output = [2134, ".", 0]
+    expected_output = ["2134", ".", "0"]
 
     # define the actual output, the value property on the My_Float class
     output = My_Float(good_input).Value
@@ -59,8 +59,10 @@ def test3(done):
     # key = input
     # value = expected output
     inputs = {
-        "-234" : [234, ".", 0],
-        "3356.54336" : [3356, ".", 54336]
+        "-234" : ["234", ".", "0"],
+        "3356.54336" : ["3356", ".", "54336"],
+        "23457." : ["23457", ".", "0"],
+        "123455.00101001" : ["123455", ".", "00101001"]
     }
 
     for input, expected_output in inputs.items():

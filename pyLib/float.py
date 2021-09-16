@@ -53,13 +53,13 @@ class My_Float:
                 # convert to list representation
                 split_float = value.split(".")
                 before = split_float[0]
-                after = split_float[1]
+                after = split_float[1] if split_float[1] != "" else "0"
 
                 # check for more than one '.'
                 if len(split_float) != 2:
                     self._raise_bad_input_error() 
 
-                self.__value = [int(before), ".", int(after)]
+                self.__value = [(before), ".", (after)]
 
         # raise error if its not a string, int, or None type
         else:
@@ -127,7 +127,8 @@ class My_Float:
         Returns:
             [str]: [a string containing a float for example: "123.0"]
         """
-        return str(self.__value[0]) + self.__value[1] + str(self.__value[2]) # example output: "123.123"
+        negative_sign = "-" if not self.__is_positive else ""
+        return negative_sign + str(self.__value[0]) + self.__value[1] + str(self.__value[2]) # example output: "123.123"
 
     def __str__(self):
         """you know what this does
@@ -135,7 +136,8 @@ class My_Float:
         Returns:
             [str]: [a string containing a float for example: "123.0"]
         """
-        return str(self.__value[0]) + self.__value[1] + str(self.__value[2]) # example output: "123.123"
+        negative_sign = "-" if not self.__is_positive else ""
+        return negative_sign + str(self.__value[0]) + self.__value[1] + str(self.__value[2]) # example output: "123.123"
 
     def __bytes__(self):
         """compute a byte-string representation of an object
@@ -152,15 +154,19 @@ class My_Float:
     #     # "float" or "e" or "ratio" or "x.precision"
     #     pass
 
+    # TODO add lt le etc magic methods
+
 
         
 
 
 if __name__ == "__main__":
-    f = My_Float("432432.348952")
+    f = My_Float("-432432.010")
 
     print(f)
     print(f.Is_positive)
+
+    print(f.Value)
 
     # f.Value = "ahdak" # <- throws error | thats a good thing
     # print(f.Value)
