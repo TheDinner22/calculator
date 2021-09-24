@@ -104,11 +104,9 @@ class My_Float:
         Returns:
             [bool]: true if it is a float, false if it is not
         """
-        # this is a lazy way to do this but I dont care!!
-        try:
-            f = float(thing)
+        if "My_Float" in type(thing).split("."):
             return True
-        except Exception:
+        else:
             return False
 
     @property
