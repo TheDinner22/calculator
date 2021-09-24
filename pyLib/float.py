@@ -2,7 +2,7 @@
 
 
 class My_Float:
-    def __init__(self, value):
+    def __init__(self, value=0):
         """validate value param and turn it into float
 
         Args:
@@ -94,6 +94,23 @@ class My_Float:
         """
         raise ValueError("Only numbers and one '.' are valid inputs")
 
+    @staticmethod
+    def is_float(thing):
+        """check if a given value is a float or not
+
+        Args:
+            thing (any): check if this var is a (my) float or not
+
+        Returns:
+            [bool]: true if it is a float, false if it is not
+        """
+        # this is a lazy way to do this but I dont care!!
+        try:
+            f = float(thing)
+            return True
+        except Exception:
+            return False
+
     @property
     def Value(self):
         """getter for self.__value
@@ -162,6 +179,8 @@ class My_Float:
 
 if __name__ == "__main__":
     f = My_Float("-432432.010")
+
+    print(type(f))
 
     print(f)
     print(f.Is_positive)
