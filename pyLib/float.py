@@ -104,7 +104,7 @@ class My_Float:
         Returns:
             [bool]: true if it is a float, false if it is not
         """
-        if "My_Float" in type(thing).split("."):
+        if "My_Float" in str(type(thing)):
             return True
         else:
             return False
@@ -178,12 +178,12 @@ class My_Float:
 if __name__ == "__main__":
     f = My_Float("-432432.010")
 
-    print(type(f))
+    print(f.is_float(1))
 
-    print(f)
-    print(f.Is_positive)
+    # print(f)
+    # print(f.Is_positive)
 
-    print(f.Value)
+    # print(f.Value)
 
     # f.Value = "ahdak" # <- throws error | thats a good thing
     # print(f.Value)
