@@ -6,6 +6,7 @@ import os, sys
 # set path to root dir, this lets me have a nodeJS like file system
 # where python will always start from the root dir when looking for files
 # no matter how nested the file in use is
+# TODO del me
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) # adds project dir to places it looks for the modules
 sys.path.append(BASE_PATH)
 
